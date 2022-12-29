@@ -8,7 +8,10 @@ const EventCapturing = lazy(() => import("./EventPropagation/EventCapturing"));
 const EventDelegation = lazy(() =>
   import("./EventPropagation/EventDelegation")
 );
-
+const OuterParent = lazy(() => import("./EventPropagation/OuterTrigger"));
+const OuterParentFunction = lazy(() =>
+  import("./EventPropagation/OuterParentFunction")
+);
 function App() {
   return (
     <div className="">
@@ -22,6 +25,12 @@ function App() {
               exact
               path="/EventDelegation"
               element={<EventDelegation />}
+            />
+            <Route exact path="/OuterParent" element={<OuterParent />} />
+            <Route
+              exact
+              path="/OuterParentFunction"
+              element={<OuterParentFunction />}
             />
           </Routes>
         </BrowserRouter>

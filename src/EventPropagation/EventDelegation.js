@@ -43,7 +43,10 @@ const EventDelegationPropagation = () => {
     console.log(action, "action");
   };
   return (
-    <div  style={{"textAlign":'center',"marginTop":'100px'}}  onClick={(e) => HandleClick(e)}>
+    <div
+      style={{ textAlign: "center", marginTop: "100px" }}
+      onClick={(e) => HandleClick(e)}
+    >
       Conunt: {counter}
       <br />
       {/*  // Here currentTarget and target results will be same. */}
@@ -52,9 +55,13 @@ const EventDelegationPropagation = () => {
         console.log(e.currentTarget,' current target')
 
       }}>Add</button> */}
-      <button autoFocus data-action="Adding">Add</button>
+      <button autoFocus data-action="Adding">
+        Add
+      </button>
       <br />
-      <button autoFocus data-action="Subtracting">Subtract</button>
+      <button autoFocus data-action="Subtracting">
+        Subtract
+      </button>
     </div>
   );
 };

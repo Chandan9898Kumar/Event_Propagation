@@ -14,6 +14,14 @@ const Header = () => {
         <li>
           <NavLink to="/EventDelegation">Event Delegation</NavLink>
         </li>
+        <li>
+          <NavLink to="/OuterParent">Hit OuterParent with Class</NavLink>
+        </li>
+        <li>
+          <NavLink to="/OuterParentFunction">
+            Hit OuterParent with Function
+          </NavLink>
+        </li>
       </ul>
       <div className="backImage">
         <p></p>
