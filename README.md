@@ -2,69 +2,54 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+`   Note :                          Event  Propagation`
 
-### `npm start`
+`// The concept of event propagation was introduced to deal with the situations`
+`// in which multiple elements in the DOM hierarchy with a parent-child relationship have`
+`//  event handlers for the same event, such as a mouse click. Now,`
+`//  the question is which element's click event will be handled first when the user clicks`
+`// on the inner element: the click event of the outer element, or the inner element`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`                        Event Propagation has three phases:`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`// Capturing Phase - the event starts from the window down until it reaches the event.target(top to bottom)`
 
-### `npm test`
+`// Target Phase - the event has reached the event.target. The most deeply nested element.`
+`// that caused the event is called a target element, accessible as event.target.`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`// Bubbling Phase - the event bubbles up from the event.target element up until it reaches the window,`
+`//  meaning: when an event happens on an element, it first runs the handlers on it,`
+`// then on its parent, then all the way up on other ancestors.`
+`//  That's the reverse of what is happening in the Capturing Phase(bottom to top).`
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`                              Note Two`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ ###                       To use bubbling -:
+Bubbling is as straightforward as with the normal DOM API;
+simply attach a handler to an eventual parent of an element,
+and any events triggered on that element will bubble to the parent,
+just like in our example in the beginning.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+###                       To use capturing -:
+Capturing is just as straightforward, but instead of the onClick prop,you have to use onClickCapture on your element.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+###                       event.stopImmediatePropagation()
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`If an element has multiple event handlers on a single event,`
+`then even if one of them stops the bubbling, the other ones still execute.`
+`In other words, event.stopPropagation() stops the move upwards,`
+`but on the current element all other handlers will run.`
+`To stop the bubbling and prevent handlers on the current element from running,`
+`there’s a method event.stopImmediatePropagation(). After it no other handlers execute(including parent).`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ ###        Which Events Do Not Bubble and How Are They Handled?
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`blur (focusout is the same but it actually bubbles).`
+`focus (focusin is the same but it actually bubbles).`
+`mouseleave (mouseout is the same but it actually bubbles).`
+`mouseenter (mouseover is the same but it actually bubbles).`
+`load, unload, abort, error, beforeunload.`

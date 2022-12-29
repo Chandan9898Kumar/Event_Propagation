@@ -1,0 +1,18 @@
+.parentProperty {
+  background-color: brown;
+  color: black;
+  text-align: center;
+  width: 500px;
+  margin-left: 400px;
+  margin-top: 50px;
+}
+
+.childProperty {
+  background-color: gray;
+  color: black;
+}
+
+.childOfChildProperty {
+  background-color: green;
+  color: black;
+}
