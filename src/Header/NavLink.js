@@ -22,6 +22,9 @@ const Header = () => {
             Hit OuterParent with Function
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/PaginationFunctional">Functional Pagination</NavLink>
+        </li>
       </ul>
       <div className="backImage">
         <p></p>

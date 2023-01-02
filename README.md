@@ -53,3 +53,7 @@ Capturing is just as straightforward, but instead of the onClick prop,you have t
 `mouseleave (mouseout is the same but it actually bubbles).`
 `mouseenter (mouseover is the same but it actually bubbles).`
 `load, unload, abort, error, beforeunload.`
+
+### Add and install react-paginate as a dependency in your app.
+
+$ npm install react-paginate --save

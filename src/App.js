@@ -12,6 +12,10 @@ const OuterParent = lazy(() => import("./EventPropagation/OuterTrigger"));
 const OuterParentFunction = lazy(() =>
   import("./EventPropagation/OuterParentFunction")
 );
+
+const PaginationFunctional = lazy(() =>
+  import("./Paginations/FunctionPagination")
+);
 function App() {
   return (
     <div className="">
@@ -31,6 +35,11 @@ function App() {
               exact
               path="/OuterParentFunction"
               element={<OuterParentFunction />}
+            />
+            <Route
+              exact
+              path="/PaginationFunctional"
+              element={<PaginationFunctional />}
             />
           </Routes>
         </BrowserRouter>
