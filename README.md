@@ -1,6 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Your Repository's Stats](https://github-readme-stats.vercel.app/api?username=Chandan9898Kumar&how_icons=true)
 
 
 `   Note :                          Event  Propagation`
