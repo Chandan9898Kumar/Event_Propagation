@@ -25,6 +25,9 @@ const Header = () => {
         <li>
           <NavLink to="/PaginationFunctional">Functional Pagination</NavLink>
         </li>
+        <li>
+          <NavLink to="/PaginationClass">Class Pagination</NavLink>
+        </li>
       </ul>
       <div className="backImage">
         <p></p>

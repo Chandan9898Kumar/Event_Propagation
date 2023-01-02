@@ -21,6 +21,9 @@ const PaginationFunctional = () => {
           ...prev,
           Data: data.products,
         }));
+      })
+      .catch((err) => {
+        alert("Something went wrong.");
       });
   };
 

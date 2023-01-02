@@ -16,6 +16,7 @@ const OuterParentFunction = lazy(() =>
 const PaginationFunctional = lazy(() =>
   import("./Paginations/FunctionPagination")
 );
+const PaginationClass = lazy(() => import("./Paginations/ClassPagination"));
 function App() {
   return (
     <div className="">
@@ -40,6 +41,11 @@ function App() {
               exact
               path="/PaginationFunctional"
               element={<PaginationFunctional />}
+            />
+            <Route
+              exact
+              path="/PaginationClass"
+              element={<PaginationClass />}
             />
           </Routes>
         </BrowserRouter>

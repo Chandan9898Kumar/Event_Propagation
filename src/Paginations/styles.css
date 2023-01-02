@@ -20,7 +20,7 @@
   display: flex;
   justify-content: space-between;
   padding: 5px;
-} 
+}
 
 .footer {
   clear: both;
@@ -29,7 +29,7 @@
   margin-top: -5px;
   color: white;
   cursor: pointer;
-   font-family: sans-serif;
+  font-family: sans-serif;
   text-align: center;
   margin-left: 20px;
 }
