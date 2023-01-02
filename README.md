@@ -1,6 +1,9 @@
 ![Your Repository's Stats](https://github-readme-stats.vercel.app/api?username=Chandan9898Kumar&how_icons=true)
 
 
+![Your Repository's Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=Chandan9898Kumar&theme=blue-green)
+
+
 `   Note :                          Event  Propagation`
 
 `// The concept of event propagation was introduced to deal with the situations`
