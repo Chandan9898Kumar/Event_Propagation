@@ -5,7 +5,7 @@
 
 
 
-`   Note :                          Event  Propagation`
+###  Note :                          Event  Propagation
 
 `// The concept of event propagation was introduced to deal with the situations`
 `// in which multiple elements in the DOM hierarchy with a parent-child relationship have`
