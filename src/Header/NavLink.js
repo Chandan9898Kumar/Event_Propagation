@@ -15,11 +15,11 @@ const Header = () => {
           <NavLink to="/EventDelegation">Event Delegation</NavLink>
         </li>
         <li>
-          <NavLink to="/OuterParent">Hit OuterParent with Class</NavLink>
+          <NavLink to="/OuterParent">OuterParent with Class</NavLink>
         </li>
         <li>
           <NavLink to="/OuterParentFunction">
-            Hit OuterParent with Function
+            OuterParent with Func.
           </NavLink>
         </li>
         <li>
@@ -27,6 +27,9 @@ const Header = () => {
         </li>
         <li>
           <NavLink to="/PaginationClass">Class Pagination</NavLink>
+        </li>
+        <li>
+          <NavLink to="/NewPagination">New</NavLink>
         </li>
       </ul>
       <div className="backImage">

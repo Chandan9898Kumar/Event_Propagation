@@ -17,6 +17,7 @@ const PaginationFunctional = lazy(() =>
   import("./Paginations/FunctionPagination")
 );
 const PaginationClass = lazy(() => import("./Paginations/ClassPagination"));
+const FetchedData=lazy(()=>import('./Paginations/NewPaginationMethod'))
 function App() {
   return (
     <div className="">
@@ -46,6 +47,11 @@ function App() {
               exact
               path="/PaginationClass"
               element={<PaginationClass />}
+            />
+            <Route
+              exact
+              path="/NewPagination"
+              element={<FetchedData />}
             />
           </Routes>
         </BrowserRouter>

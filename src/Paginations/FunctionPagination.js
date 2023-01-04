@@ -37,6 +37,32 @@ const PaginationFunctional = () => {
   //   );
 
   //   Note : use above commented or below function.
+
+//   const Renting = () => {
+//     return(
+//      result.Data.slice(offset, offset + PER_PAGE).map((thumburl) => (
+//        <img src={thumburl.images[0]} alt='' />
+//       ))
+//     )
+
+
+//  OR we can do like this -:
+
+// let datas= result.Data.slice(offset, offset + PER_PAGE).map((thumburl) => (
+//     <img src={thumburl.images[0]} alt='' />
+//    ))
+//  return datas
+
+
+//    };
+
+
+
+
+
+//  or below, note above Renting and below Renting are same, at above we did not give {} curly braces,
+// but below we have given, because it is inside <div> element.
+
   const Renting = () => {
     return (
       <div className="products">
