@@ -5,7 +5,7 @@ const FetchedData = () => {
   const [defaultData, setDefaultData] = useState([]);
   const [result, setResult] = useState({
     current: 0,
-    pageSize: 5,
+    pageSize: 10,
     data: [],
     totalPages: 0,
   });
@@ -15,7 +15,7 @@ const FetchedData = () => {
   }, []);
 
   const GettingData = () => {
-    fetch("https://dummyjson.com/products")
+    fetch("https://dummyjson.com/products?limit=100")
       .then((response) => response.json())
       .then((result) => {
         setDefaultData(result.products);
@@ -25,7 +25,7 @@ const FetchedData = () => {
           current: 1,
           data: result.products ? paginatedData : [],
           totalPages: result.products
-            ? Math.ceil(result.products.length / 5)
+            ? Math.ceil(result.products.length / 10)
             : 0,
         }));
       })
@@ -66,7 +66,7 @@ const FetchedData = () => {
 
   const MyData = () => {
     let results = result.data.map((item, index) => (
-      <img key={index} src={item.images[0]} alt="" />
+      <img key={index} src={item.thumbnail} alt="" />
     ));
     return results;
   };

@@ -70,7 +70,7 @@ const PaginationFunctional = () => {
           <div key={index}>
             <p>
               {thumburl.brand}
-              <img src={thumburl.images[0]} alt="" />
+              <img src={thumburl.thumbnail} alt="" />
             </p>
           </div>
         ))}
