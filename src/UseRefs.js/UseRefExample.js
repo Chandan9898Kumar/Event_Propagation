@@ -30,10 +30,14 @@ export default function UseRefExample() {
   // }, []);
 
   // now to handle it ,we will use useRef.Here we useEffect will run once
-  // and also whenever we change state (setdata) while typing
-  // useffect will run. if we had used setcount in useffect
+  // and also whenever we change state (setData) while typing
+  // useEffect will run. if we had used setCount in useEffect
   // then it would created infinite loop. like above ⬆ ️ code.
   useEffect(() => {
+ // here count is rendering current as an object and count.current initially is 0, which we have set .
+ // here count is not referring to anything, and inputDom ,ThirdInput,fourthInput are referring to
+ // input filed (element) bottom 🔽 .
+    console.log(count,'count >>>>>>>>>>>>>>>>')
     count.current = count.current + 1;
   });
   //       Or we can use like below :
@@ -47,10 +51,10 @@ export default function UseRefExample() {
   //   as we have given  "inputDom" as ref to input field.
   //   useRef is used here which prevent re-rendering.
   const handleClick = (e) => {
-    // here current is an object.
+    // here current is an object and  it is referring to the input element (filed)
     e.preventDefault();
     console.log(inputDom, "inputDom      >>>>>>");
-    console.log(e, "event        >>>>>>");
+    console.log(e, "       event                >>>>>>");
 
     // we want to change is background color then :
     inputDom.current.style.backgroundColor = "gray";
