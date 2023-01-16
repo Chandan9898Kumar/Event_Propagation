@@ -50,7 +50,7 @@ const Header = () => {
             to="/PaginationFunctional"
             className={({ isActive }) => (isActive ? "active" : "inactive")}
           >
-            Functional Pagination
+            Funct. Pagination
           </NavLink>
         </li>
         <li>
@@ -66,7 +66,7 @@ const Header = () => {
             to="/NewPagination"
             className={({ isActive }) => (isActive ? "active" : "inactive")}
           >
-            New
+            Page 1
           </NavLink>
         </li>
         <li>
@@ -74,7 +74,15 @@ const Header = () => {
             to="/NewPaginationManual"
             className={({ isActive }) => (isActive ? "active" : "inactive")}
           >
-            New 2
+            Page 2
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/useRef"
+            className={({ isActive }) => (isActive ? "active" : "inactive")}
+          >
+            Ref
           </NavLink>
         </li>
       </ul>

@@ -17,8 +17,9 @@ const PaginationFunctional = lazy(() =>
   import("./Paginations/FunctionPagination")
 );
 const PaginationClass = lazy(() => import("./Paginations/ClassPagination"));
-const FetchedData=lazy(()=>import('./Paginations/NewPaginationMethod'));
-const  ManualPagination=lazy(()=>import('./Paginations/PaginationManul'))
+const FetchedData = lazy(() => import("./Paginations/NewPaginationMethod"));
+const ManualPagination = lazy(() => import("./Paginations/PaginationManul"));
+const UseRefExample = lazy(() => import("./UseRefs.js/UseRefExample"));
 function App() {
   return (
     <div className="">
@@ -49,16 +50,13 @@ function App() {
               path="/PaginationClass"
               element={<PaginationClass />}
             />
+            <Route exact path="/NewPagination" element={<FetchedData />} />
             <Route
-              exact
-              path="/NewPagination"
-              element={<FetchedData />}
-            />
-             <Route
               exact
               path="/NewPaginationManual"
               element={<ManualPagination />}
             />
+            <Route exact path="/useRef" element={<UseRefExample />} />
           </Routes>
         </BrowserRouter>
       </Suspense>
