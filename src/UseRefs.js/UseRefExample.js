@@ -135,8 +135,15 @@ export default function UseRefExample() {
           <br />
           {/* Here we used input field,and refered it with useRef .
           now whenever we change input it will not render anything in return and 
-          here we are not setting any state. just useRef */}
+          here we are not setting any state. just useRef .
+          Here below "Your Input" will not show anything because we used useRef,
+          hence it is not rendering anything but when we set any other state then it will show
+          its value.try typing above input where we are setting state,then you will see changes.
+          */}
           <span>Fourth Input element - Controlled</span>
+          <br />
+          Your Input : {"  "}
+          {fourthInput.current.value}
           <br />
           <input
             placeholder="Type your query"
@@ -148,12 +155,16 @@ export default function UseRefExample() {
               fourthInput.current.value = e.target.value;
             }}
           />
-          {/* All above examples of input are controlled  because we used "value and onChange event" 
- in input filed.
-Now we are using uncontrolled  way of handling input with useRef,where no "value and onChange event"
-will be given to input field.
 
+{/* All above examples of input are controlled  because we used "value and onChange event" 
+ in the  input filed.
+Now below 🔽 we are using uncontrolled  way of handling input with useRef,where no "value and onChange event"
+will be given to input field.
 when we type something in input filed and want to see its value,so Below we used button.
+
+Here below "Your Input" will not show anything because we used useRef,
+hence it is not rendering anything but when we set any other state then it will show
+ its value.try typing above input where we are setting state,then you will see changes.
 */}
           <br />
           <br />
@@ -161,6 +172,9 @@ when we type something in input filed and want to see its value,so Below we used
           <br />
           <span>Fifth Input element - unControlled</span>
           <br />
+          Your Input : {"  "}
+          {fifthInput.current.value}
+          <br />{" "}
           <input placeholder="Type your query" type="text" ref={fifthInput} />
           <br />
           <br />
