@@ -18,8 +18,8 @@ export default function UseRefExample() {
   const count = useRef(0);
   const inputDom = useRef("");
   const ThirdInput = useRef("Desi");
-
-  const fourthInput=useRef('input')
+  const fourthInput = useRef("input");
+  const fifthInput = useRef("input");
 
   // const [count, setCount] = useState(0);
   // Here if we remove [] from useEffect,then it will
@@ -34,10 +34,10 @@ export default function UseRefExample() {
   // useEffect will run. if we had used setCount in useEffect
   // then it would created infinite loop. like above ⬆ ️ code.
   useEffect(() => {
- // here count is rendering current as an object and count.current initially is 0, which we have set .
- // here count is not referring to anything, and inputDom ,ThirdInput,fourthInput are referring to
- // input filed (element) bottom 🔽 .
-    console.log(count,'count >>>>>>>>>>>>>>>>')
+    // here count is rendering current as an object and count.current initially is 0, which we have set .
+    // here count is not referring to anything, and inputDom ,ThirdInput,fourthInput are referring to
+    // input filed (element) bottom 🔽 .
+    console.log(count, "count >>>>>>>>>>>>>>>>");
     count.current = count.current + 1;
   });
   //       Or we can use like below :
@@ -84,6 +84,8 @@ export default function UseRefExample() {
         <div style={{ textAlign: "center" }}>
           {/* Below we are setting state,so at each value,page will render,and useEffect will call
         and count will increase */}
+          <span>First Input element</span>
+          <br />
           <input
             type="text"
             value={data}
@@ -94,9 +96,6 @@ export default function UseRefExample() {
           {"   "}
           <br />
           Count : {count.current}
-
-
-
           <br />
           <br />
           <br />
@@ -105,6 +104,8 @@ export default function UseRefExample() {
       Here also,if we type anything then setNewData function gets called and it will set state
       and hence useEffect gets called and count increases.
       */}
+          <span>Second Input element</span>
+          <br />
           <input
             ref={inputDom}
             type="text"
@@ -115,14 +116,12 @@ export default function UseRefExample() {
           />
           <br />
           <button onClick={handleClick}>Click</button>
-
-
-
           <br />
           <br />
           <br />
           <br />
-          <span>Third Input element</span><br />
+          <span>Third Input element</span>
+          <br />
           <input
             placeholder="Type Here"
             ref={ThirdInput}
@@ -134,20 +133,47 @@ export default function UseRefExample() {
           <br />
           <br />
           <br />
-
           {/* Here we used input field,and refered it with useRef .
           now whenever we change input it will not render anything in return and 
           here we are not setting any state. just useRef */}
-          <span>Fourth Input element</span><br />
+          <span>Fourth Input element - Controlled</span>
+          <br />
           <input
-          placeholder="Type your query"
-          type="text"
-          value={fourthInput.current.value}
-          ref={fourthInput}
-          onChange={(e)=>{
-            fourthInput.current.value=e.target.value
-          }}
+            placeholder="Type your query"
+            type="text"
+            value={fourthInput.current.value}
+            ref={fourthInput}
+            onChange={(e) => {
+              // console.log(fourthInput.current.value,'fourthInput.current.value')
+              fourthInput.current.value = e.target.value;
+            }}
           />
+          {/* All above examples of input are controlled  because we used "value and onChange event" 
+ in input filed.
+Now we are using uncontrolled  way of handling input with useRef,where no "value and onChange event"
+will be given to input field.
+
+when we type something in input filed and want to see its value,so Below we used button.
+*/}
+          <br />
+          <br />
+          <br />
+          <br />
+          <span>Fifth Input element - unControlled</span>
+          <br />
+          <input placeholder="Type your query" type="text" ref={fifthInput} />
+          <br />
+          <br />
+          <button
+            onClick={(e) => {
+              console.log(
+                fifthInput.current.value,
+                "fifth input >>>>>>>>>>>>>"
+              );
+            }}
+          >
+            Click Here
+          </button>
         </div>
       </>
     )
