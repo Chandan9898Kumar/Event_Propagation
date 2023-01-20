@@ -15,6 +15,11 @@ export default function UseRefExample() {
   const [newdata, setNewData] = useState("");
   const [newThirdData, setNewThirdData] = useState("");
 
+  //          Image Builder  App
+  const [isPlaying, setIsPlaying] = useState(false);
+  const ref = useRef(null);
+  //
+
   const count = useRef(0);
   const inputDom = useRef("");
   const ThirdInput = useRef("Desi");
@@ -33,6 +38,7 @@ export default function UseRefExample() {
   // and also whenever we change state (setData) while typing
   // useEffect will run. if we had used setCount in useEffect
   // then it would created infinite loop. like above ⬆ ️ code.
+
   useEffect(() => {
     // here count is rendering current as an object and count.current initially is 0, which we have set .
     // here count is not referring to anything, and inputDom ,ThirdInput,fourthInput are referring to
@@ -40,6 +46,7 @@ export default function UseRefExample() {
     console.log(count, "count >>>>>>>>>>>>>>>>");
     count.current = count.current + 1;
   });
+
   //       Or we can use like below :
 
   // useEffect(() => {
@@ -50,6 +57,7 @@ export default function UseRefExample() {
   //   you can put console at return and check it will not re-render whenever button is hit.
   //   as we have given  "inputDom" as ref to input field.
   //   useRef is used here which prevent re-rendering.
+
   const handleClick = (e) => {
     // here current is an object and  it is referring to the input element (filed)
     e.preventDefault();
@@ -73,6 +81,50 @@ export default function UseRefExample() {
     ThirdInput.current.focus();
     // we can modify anything like below and above.
     // e.target.disabled=true
+  };
+
+  const imageBuilder = () => {
+    function handleClick() {
+      console.log(isPlaying, "is play");
+      const nextIsPlaying = !isPlaying;
+      setIsPlaying(nextIsPlaying);
+
+//   Here useRef can access element video because we put reference their,so any properties 
+//   of video element we can access with the help of useRef now, and even we can manipulate the as well.
+//   first we change the width property of video from 250 to 100(manipulating).
+//   we can add focus to video as well.
+//   now we know that ref returns current as an object so we can add any key value pair their.for ex- height.
+// as below you can see we used play() event of video,here we are accessing 
+// and manipulating it to set state.
+// in console you can see addition property we added and manipulated property as well.
+
+      if (nextIsPlaying) {
+        ref.current.play();
+        ref.current.width='200';
+        ref.current.focus();
+        ref.current.style.float="center"
+        ref.current.height='200'
+      } else {
+        ref.current.pause();
+      }
+    }
+
+    return ( console.log(ref.current,'ref in return >>>>>>>>>'),
+      <>
+        <button onClick={handleClick}>{isPlaying ? "Pause" : "Play"}</button><br />
+        <video
+          width="250"
+          ref={ref}
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+        >
+          <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </>
+    );
   };
 
   return (
@@ -155,8 +207,7 @@ export default function UseRefExample() {
               fourthInput.current.value = e.target.value;
             }}
           />
-
-{/* All above examples of input are controlled  because we used "value and onChange event" 
+          {/* All above examples of input are controlled  because we used "value and onChange event" 
  in the  input filed.
 Now below 🔽 we are using uncontrolled  way of handling input with useRef,where no "value and onChange event"
 will be given to input field.
@@ -188,6 +239,12 @@ hence it is not rendering anything but when we set any other state then it will 
           >
             Click Here
           </button>
+          <br />
+          <br /><br /><br />
+           
+          {imageBuilder()}
+          <br />
+          
         </div>
       </>
     )
