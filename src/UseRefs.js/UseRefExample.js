@@ -250,3 +250,17 @@ hence it is not rendering anything but when we set any other state then it will 
     )
   );
 }
+
+
+
+// When to use refs  :-
+
+// Typically, you will use a ref when your component needs to “step outside” React 
+// and communicate with external APIs—often a browser API that won’t impact 
+// the appearance of the component. Here are a few of these rare situations:
+
+// Storing timeout IDs.
+// Storing and manipulating DOM elements.
+// Storing other objects that aren’t necessary to calculate the JSX.
+// If your component needs to store some value, but it doesn’t 
+// impact the rendering logic, choose refs.
